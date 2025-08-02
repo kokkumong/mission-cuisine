@@ -14,4 +14,8 @@ public class Cuisine {
     public int getCuisineId() {
         return cuisineId;
     }
+
+    public String getCuisineName() {
+        return cuisineName;
+    }
 }

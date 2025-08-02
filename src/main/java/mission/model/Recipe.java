@@ -19,9 +19,9 @@ public class Recipe {
         return ingredientWithWeights;
     }
 
-    public boolean contain(List<Ingredient> ingredients){
+    public boolean contain(List<Integer> ingredientIdList){
         return ingredientWithWeights.stream()
-                .map(i -> i.getIngredient())
-                .allMatch(ingredient -> ingredients.contains(ingredient));
+                .map(i -> i.getIngredient().getIngredientId())
+                .allMatch(ingredientIdList::contains);
     }
 }
