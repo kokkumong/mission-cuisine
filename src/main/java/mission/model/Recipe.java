@@ -1,17 +1,27 @@
 package mission.model;
 
-public class Recipe {
-    private int recipeId;
-    private String recipeName;
-    private int recipeWeight;
+import java.util.List;
 
-    public Recipe(int recipeId, String recipeName, int recipeWeight) {
-        this.recipeId = recipeId;
-        this.recipeName = recipeName;
-        this.recipeWeight = recipeWeight;
+public class Recipe {
+    private Cuisine cuisine;
+    private List<IngredientWithWeight> ingredientWithWeights;
+
+    public Recipe(Cuisine cuisine, List<IngredientWithWeight> ingredientWithWeights) {
+        this.cuisine = cuisine;
+        this.ingredientWithWeights = ingredientWithWeights;
     }
 
-    public int getRecipeId() {
-        return recipeId;
+    public Cuisine getCuisine() {
+        return cuisine;
+    }
+
+    public List<IngredientWithWeight> getIngredientWithWeights() {
+        return ingredientWithWeights;
+    }
+
+    public boolean contain(List<Ingredient> ingredients){
+        return ingredientWithWeights.stream()
+                .map(i -> i.getIngredient())
+                .allMatch(ingredient -> ingredients.contains(ingredient));
     }
 }

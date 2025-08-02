@@ -6,19 +6,20 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import mission.model.Recipe;
+import mission.model.dto.RecipeDto;
 
 public class RecipeLoader {
-    public static ArrayList<Recipe> loadFromCSV(String filePath){
-        ArrayList<Recipe> recipes = new ArrayList<>();
+    public static ArrayList<RecipeDto> loadFromCSV(String filePath){
+        ArrayList<RecipeDto> recipes = new ArrayList<>();
         try(BufferedReader br = new BufferedReader(new FileReader(filePath))){
             String line;
             br.readLine();
             while((line = br.readLine()) != null){
                 String[] parts = line.split(",");
-                int recipeId = Integer.parseInt(parts[0].trim());
-                String recipeName = parts[1].trim();
+                int cuisine_Id = Integer.parseInt(parts[0].trim());
+                int ingredient_id = Integer.parseInt(parts[1].trim());
                 int recipeWeight = Integer.parseInt(parts[2].trim());
-                Recipe recipe = new Recipe(recipeId,recipeName,recipeWeight);
+                RecipeDto recipe = new RecipeDto(cuisine_Id,ingredient_id,recipeWeight);
                 recipes.add(recipe);
             }
         }

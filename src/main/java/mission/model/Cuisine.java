@@ -11,7 +11,7 @@ public class Cuisine {
         this.cuisineName = cuisineName;
     }
 
-    public static int getCuisineId(Cuisine cuisine) {
-        return cuisine.cuisineId;
+    public int getCuisineId() {
+        return cuisineId;
     }
 }

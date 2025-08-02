@@ -23,6 +23,9 @@ public class RecipeController {
         //레시피 파일에 있는 ingredient_id랑 매치된 재료의 id랑 같은 레시피를 찾기
         this.matchedingredients = ingredientController.getMatchedIngredients();
 
+        this.matchedRecipes = allRecipes.stream()
+                .filter(recipe -> recipe.contain(matchedingredients))
+                .toList();
     }
 
     private List<IngredientWithWeight> getIngredientWithWeight(IngredientController ingredientController, List<RecipeDto> allRecipesDto, Cuisine cuisine) {
