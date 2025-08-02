@@ -13,8 +13,12 @@ public class Ingredient {
         this.unit = unit;
     }
 
-    public static int getIngredientId(Ingredient ingredient) {
+    public int getIngredientId() {
         return ingredient.ingredientId;
+    }
+
+    public String getIngredientName() {
+        return ingredientName;
     }
 
     public enum Unit {

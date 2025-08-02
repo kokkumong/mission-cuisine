@@ -10,4 +10,8 @@ public class Recipe {
         this.recipeName = recipeName;
         this.recipeWeight = recipeWeight;
     }
+
+    public int getRecipeId() {
+        return recipeId;
+    }
 }
